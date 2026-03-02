@@ -212,7 +212,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div style={{ borderTop: "1px solid #e3e3e3", padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "#fff", marginTop: 24 }}>
+      <div style={{ borderTop: "1px solid #e3e3e3", padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "#fff", position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 99 }}>
         <span style={{ fontSize: 11, color: "#9e9e9e" }}>wydemedia PPC Scaling OS · Internal use only</span>
         <span style={{ fontSize: 11, color: "#c4c4c4", fontFamily: "monospace" }}>v2.0</span>
       </div>
