@@ -9,14 +9,6 @@ const TOOLS = [
     category: "Search Ads",
     description: "Classify headline and description performance, identify wasted spend, and generate AI-powered replacement copy using the Geddes framework.",
     status: "live",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <rect x="1" y="1" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.9"/>
-        <rect x="10" y="1" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.4"/>
-        <rect x="1" y="10" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.4"/>
-        <rect x="10" y="10" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.65"/>
-      </svg>
-    ),
   },
   {
     id: "audit",
@@ -25,12 +17,6 @@ const TOOLS = [
     category: "Search Ads",
     description: "Full Google Ads account health check — wasted spend, search term leaks, negative keyword gaps, bid strategy issues, and Quality Score analysis.",
     status: "coming",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <circle cx="9" cy="9" r="7" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-        <path d="M9 5v4l2.5 2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
   },
   {
     id: "ngram",
@@ -39,11 +25,6 @@ const TOOLS = [
     category: "Search Ads",
     description: "Extract 1–5 gram phrases from search term reports, aggregate performance metrics, and surface high and low performing query patterns.",
     status: "coming",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M2 14 L6 8 L10 11 L14 4 L16 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
   },
   {
     id: "scripts",
@@ -52,105 +33,61 @@ const TOOLS = [
     category: "Automation",
     description: "View and manage Google Ads script outputs across all client accounts from a single interface.",
     status: "coming",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-        <path d="M5 7h8M5 10h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
   },
 ];
 
 export default function Home() {
-  const navigate = useNavigate();
+  const navigate  = useNavigate();
   const [hovered, setHovered] = useState(null);
 
-  const liveCount   = TOOLS.filter(t => t.status === "live").length;
-  const comingCount = TOOLS.filter(t => t.status === "coming").length;
-
   return (
-    <div style={{
-      fontFamily: "'Inter', system-ui, sans-serif",
-      background: "#f1f1f1",
-      minHeight: "100vh",
-      color: "#1a1a1a",
-    }}>
+    <div style={{ fontFamily: "'IBM Plex Mono', 'Courier New', monospace", background: "#ffffff", minHeight: "100vh", color: "#0a0a0a" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(10px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        .tool-card { animation: fadeUp 0.35s ease both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        .tool-card { animation: fadeUp 0.4s ease both; }
       `}</style>
 
-      {/* Top nav */}
-      <div style={{
-        background: "#fff",
-        borderBottom: "1px solid #e3e3e3",
-        padding: "0 24px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        height: 52,
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{
-            width: 26, height: 26,
-            background: "#1a73e8",
-            borderRadius: 5,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            color: "#fff", fontWeight: 700, fontSize: 12,
-          }}>w</div>
-          <span style={{ fontWeight: 600, fontSize: 14, letterSpacing: "-0.02em" }}>wydemedia</span>
-          <span style={{ color: "#c4c4c4", fontSize: 14, margin: "0 2px" }}>/</span>
-          <span style={{ fontSize: 13, color: "#6b6b6b" }}>PPC Scaling OS</span>
+      {/* Nav */}
+      <div style={{ borderBottom: "1px solid #e8e8e8", padding: "0 40px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 50 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ width: 24, height: 24, background: "#0a0a0a", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 700, fontSize: 11 }}>w</div>
+          <span style={{ fontWeight: 700, fontSize: 13, letterSpacing: "-0.01em" }}>wydemedia</span>
         </div>
-        <div style={{ fontSize: 11, color: "#9e9e9e", fontFamily: "monospace" }}>
-          tools.wydemedia.com
+        <div style={{ fontSize: 11, color: "#9a9a9a", letterSpacing: "0.02em" }}>tools.wydemedia.com</div>
+      </div>
+
+      {/* Hero */}
+      <div style={{ maxWidth: 780, margin: "0 auto", padding: "80px 40px 60px", textAlign: "center" }}>
+        <div style={{ display: "inline-flex", alignItems: "center", gap: 7, border: "1px solid #e8e8e8", borderRadius: 3, padding: "5px 12px", fontSize: 10, fontWeight: 600, letterSpacing: "0.1em", color: "#5a5a5a", textTransform: "uppercase", marginBottom: 32 }}>
+          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#f97316", display: "inline-block" }} />
+          Internal Tools Suite
+        </div>
+        <h1 style={{ fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 700, lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: 24, color: "#0a0a0a" }}>
+          wydemedia <span style={{ color: "#f97316" }}>PPC</span><br />Scaling OS
+        </h1>
+        <p style={{ fontSize: 15, color: "#5a5a5a", lineHeight: 1.7, maxWidth: 480, margin: "0 auto 40px", fontWeight: 400 }}>
+          AI-powered tools for Google Ads management across all client accounts.
+        </p>
+        <div style={{ display: "inline-flex", alignItems: "center", gap: 24, fontSize: 13, color: "#5a5a5a" }}>
+          <span><strong style={{ color: "#0a0a0a" }}>1</strong> live tool</span>
+          <span style={{ color: "#e8e8e8" }}>·</span>
+          <span><strong style={{ color: "#0a0a0a" }}>3</strong> coming soon</span>
+          <span style={{ color: "#e8e8e8" }}>·</span>
+          <span><strong style={{ color: "#0a0a0a" }}>29</strong> client accounts</span>
         </div>
       </div>
 
-      {/* Page header */}
-      <div style={{
-        background: "#fff",
-        borderBottom: "1px solid #e3e3e3",
-        padding: "32px 24px 28px",
-      }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-            <div>
-              <h1 style={{ fontSize: 26, fontWeight: 700, letterSpacing: "-0.03em", color: "#1a1a1a", marginBottom: 6 }}>
-                wydemedia PPC Scaling OS
-              </h1>
-              <p style={{ fontSize: 13, color: "#6b6b6b", lineHeight: 1.5 }}>
-                AI-powered tools for Google Ads management across all client accounts.
-              </p>
-            </div>
-            <div style={{ display: "flex", gap: 8 }}>
-              <div style={{ background: "#f0f7ff", border: "1px solid #cce0ff", borderRadius: 8, padding: "8px 16px", textAlign: "center" }}>
-                <div style={{ fontSize: 20, fontWeight: 700, color: "#1a73e8", letterSpacing: "-0.03em" }}>{liveCount}</div>
-                <div style={{ fontSize: 11, color: "#5c85c4", fontWeight: 500, marginTop: 1 }}>Live</div>
-              </div>
-              <div style={{ background: "#f9f9f9", border: "1px solid #e3e3e3", borderRadius: 8, padding: "8px 16px", textAlign: "center" }}>
-                <div style={{ fontSize: 20, fontWeight: 700, color: "#6b6b6b", letterSpacing: "-0.03em" }}>{comingCount}</div>
-                <div style={{ fontSize: 11, color: "#9e9e9e", fontWeight: 500, marginTop: 1 }}>Coming</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div style={{ borderTop: "1px solid #e8e8e8" }} />
 
-      {/* Tools grid */}
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "24px" }}>
-        <div style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.07em", color: "#9e9e9e", marginBottom: 14 }}>
-          All tools ({TOOLS.length})
+      {/* Tools */}
+      <div style={{ maxWidth: 780, margin: "0 auto", padding: "60px 40px 100px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 32 }}>
+          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#f97316", display: "inline-block" }} />
+          <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.1em", color: "#5a5a5a", textTransform: "uppercase" }}>All Tools</span>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           {TOOLS.map((tool, i) => {
             const isLive    = tool.status === "live";
             const isHovered = hovered === tool.id;
@@ -162,49 +99,42 @@ export default function Home() {
                 onMouseEnter={() => isLive && setHovered(tool.id)}
                 onMouseLeave={() => setHovered(null)}
                 style={{
-                  animationDelay: `${i * 50}ms`,
-                  background: "#fff",
-                  border: `1px solid ${isHovered ? "#1a73e8" : "#e3e3e3"}`,
-                  borderRadius: 10,
-                  padding: "20px",
+                  animationDelay: `${i * 60}ms`,
+                  borderTop: i === 0 ? "1px solid #e8e8e8" : "none",
+                  borderBottom: "1px solid #e8e8e8",
+                  padding: "28px 0",
                   cursor: isLive ? "pointer" : "default",
-                  transition: "border-color 0.15s, box-shadow 0.15s",
-                  boxShadow: isHovered ? "0 2px 12px rgba(26,115,232,0.12)" : "0 1px 2px rgba(0,0,0,0.04)",
-                  opacity: isLive ? 1 : 0.6,
                   display: "flex",
-                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 24,
+                  opacity: isLive ? 1 : 0.45,
                 }}
               >
-                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 14 }}>
-                  <div style={{
-                    width: 36, height: 36,
-                    background: isLive ? "#f0f7ff" : "#f5f5f5",
-                    borderRadius: 8,
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    color: isLive ? "#1a73e8" : "#9e9e9e",
-                  }}>{tool.icon}</div>
-                  <span style={{
-                    fontSize: 10, fontWeight: 600, letterSpacing: "0.04em", padding: "3px 8px", borderRadius: 4,
-                    ...(isLive
-                      ? { background: "#f0f7ff", color: "#1a73e8", border: "1px solid #cce0ff" }
-                      : { background: "#f5f5f5", color: "#9e9e9e", border: "1px solid #e3e3e3" }),
-                  }}>{isLive ? "Live" : "Coming soon"}</span>
-                </div>
-                <div style={{ fontSize: 10, fontWeight: 600, color: "#9e9e9e", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 4 }}>{tool.category}</div>
-                <div style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em", color: "#1a1a1a", marginBottom: 8 }}>{tool.label}</div>
-                <div style={{ fontSize: 12, color: "#6b6b6b", lineHeight: 1.6, flex: 1 }}>{tool.description}</div>
-                {isLive && (
-                  <div style={{
-                    marginTop: 16, paddingTop: 14, borderTop: "1px solid #f0f0f0",
-                    display: "flex", alignItems: "center", justifyContent: "space-between",
-                    fontSize: 12, fontWeight: 600,
-                    color: isHovered ? "#1a73e8" : "#6b6b6b",
-                    transition: "color 0.15s",
-                  }}>
-                    <span>Open tool</span>
-                    <span style={{ transition: "transform 0.15s", transform: isHovered ? "translateX(3px)" : "none", display: "inline-block", fontSize: 14 }}>→</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                    <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.08em", color: "#9a9a9a", textTransform: "uppercase" }}>{tool.category}</span>
+                    {isLive && (
+                      <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#f97316", border: "1px solid #f97316", padding: "2px 6px", borderRadius: 2 }}>Live</span>
+                    )}
                   </div>
-                )}
+                  <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.02em", color: "#0a0a0a", marginBottom: 8 }}>{tool.label}</div>
+                  <div style={{ fontSize: 12, color: "#5a5a5a", lineHeight: 1.7, maxWidth: 500 }}>{tool.description}</div>
+                </div>
+                <div style={{
+                  flexShrink: 0,
+                  border: `1px solid ${isLive ? "#0a0a0a" : "#e8e8e8"}`,
+                  borderRadius: 3,
+                  padding: "10px 20px",
+                  fontSize: 12,
+                  fontWeight: 600,
+                  color: isLive ? (isHovered ? "#fff" : "#0a0a0a") : "#c0c0c0",
+                  background: isLive && isHovered ? "#0a0a0a" : "#fff",
+                  transition: "background 0.15s, color 0.15s",
+                  whiteSpace: "nowrap",
+                }}>
+                  {isLive ? "Open tool →" : "Coming soon"}
+                </div>
               </div>
             );
           })}
@@ -212,9 +142,9 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div style={{ borderTop: "1px solid #e3e3e3", padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "#fff", position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 99 }}>
-        <span style={{ fontSize: 11, color: "#9e9e9e" }}>wydemedia PPC Scaling OS · Internal use only</span>
-        <span style={{ fontSize: 11, color: "#c4c4c4", fontFamily: "monospace" }}>v2.0</span>
+      <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, borderTop: "1px solid #e8e8e8", padding: "12px 40px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "#fff", zIndex: 99 }}>
+        <span style={{ fontSize: 11, color: "#9a9a9a" }}>wydemedia PPC Scaling OS · Internal use only</span>
+        <span style={{ fontSize: 11, color: "#c8c8c8" }}>v2.0</span>
       </div>
     </div>
   );
